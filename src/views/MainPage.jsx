@@ -28,8 +28,8 @@ const MainPage = () => {
                         <Grid container alignItems="center" justifyContent="center" spacing={2}>
                             {posts.length ?
                                 (posts.map((post) => (
-                                    <Grid item xs={10} md={10} lg={8}>
-                                        <Link to={`/posts/${post.id}`} key={post.id}>
+                                    <Grid item xs={10} md={10} lg={8} key={post.id}>
+                                        <Link to={`/posts/${post.id}`} style={{ textDecoration: 'none' }} key={post.id}>
                                             <BlogCard
                                                 author={post.author}
                                                 content={post.content}

@@ -33,7 +33,7 @@ const SinglePostPage = () => {
     return (
         <>
             <MenuBar />
-            <div style={{ paddingTop: 64, backgroundColor: "black" }}>
+            <div style={{ paddingTop: 64 }}>
                 <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                     {(isLoading && postData.length) ? (
                         <p>Loading post...</p>

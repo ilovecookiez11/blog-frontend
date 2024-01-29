@@ -10,7 +10,7 @@ const SearchResults = ({ results }) => (
             {results.map((result) => (
             <li key={result.id}>
                 {<Grid item xs={10} md={10} lg={8}>
-                    <Link to={`/posts/${result.id}`} key={result.id}>
+                    <Link to={`/posts/${result.id}`} style={{ textDecoration: 'none' }} key={result.id}>
                         <BlogCard
                             author={result.author}
                             content={result.content}
