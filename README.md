@@ -5,7 +5,7 @@ Instalar dependencias con
 npm install
 ```
 
-Una vez que el backend ( https://github.com/ilovecookiez11/blog-frontend ) está corriendo, se puede levantar el frontend simplemente con
+Una vez que el backend ( https://github.com/ilovecookiez11/blog-backend ) está corriendo, se puede levantar el frontend simplemente con
 ```
 npm run dev
 ```
