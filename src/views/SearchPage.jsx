@@ -1,31 +1,43 @@
 import React, { useState } from 'react';
-import SearchBar from './SearchBar';
-import SearchResults from './SearchResults';
+import MenuBar from '../components/MenuBar';
+import SearchBar from '../components/SearchBar'
+import SearchResults from '../components/SearchResults';
+import { apiUrl } from '../config';
 
 const SearchPage = () => {
     const [searchResults, setSearchResults] = useState([]);
+    const searchPosts = async (author, title, content) => {
+        let queryURL = ""
+        if (author) {
+            queryURL = `${queryURL}?author=${author}`
+        }
+        if (title) {
+            queryURL = `${queryURL}?author=${title}`
+        }
+        if (content) {
+            queryURL = `${queryURL}?author=${content}`
+        }
+        const response = await fetch(`${apiUrl}/search${queryURL}`);
+        const data = await response.json();
+
+        return data;
+    }
 
     const handleSearch = async ({ author, title, content }) => {
-        
-        const results = await mockSearchFunction(author, title, content);
+        const results = await searchPosts(author, title, content);
         setSearchResults(results);
     };
 
     return (
         <>
-        <h1>Search Posts</h1>
+        <MenuBar />
+        <h1>Buscar Posts</h1>
         <SearchBar onSearch={handleSearch} />
         {searchResults.length > 0 && <SearchResults results={searchResults} />}
         </>
     );
     };
 
-    // Replace with your actual search function
-    function mockSearchFunction(author, title, content) {
-    return [
-        { id: 1, title: 'Post Title 1', author: 'Author 1', content: '...' },
-        // ... other mock results based on search terms
-    ];
-}
+    
 
 export default SearchPage;

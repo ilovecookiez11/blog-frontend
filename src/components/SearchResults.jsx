@@ -1,4 +1,7 @@
 import React from 'react';
+import { Grid } from '@mui/material';
+import { Link } from 'react-router-dom';
+import BlogCard from './BlogCard';
 
 const SearchResults = ({ results }) => (
     <>
@@ -7,7 +10,7 @@ const SearchResults = ({ results }) => (
             {results.map((result) => (
             <li key={result.id}>
                 {<Grid item xs={10} md={10} lg={8}>
-                    <Link to={`/posts/${result.id}`} key={presultost.id}>
+                    <Link to={`/posts/${result.id}`} key={result.id}>
                         <BlogCard
                             author={result.author}
                             content={result.content}

@@ -6,7 +6,8 @@ const SearchBar = ({ onSearch }) => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 
-    const handleSearch = () => {
+    const handleSearch = (e) => {
+        e.preventDefault();
         onSearch({ author, title, content });
     };
 
